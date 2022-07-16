@@ -1,6 +1,8 @@
 .venv
-data/
-*.csv
+*.npy
+toxic_images/urls/*.csv
+nontoxic_images/urls/*.csv
+toxic_images/all_urls.csv
 *.jpg
 000/
 001/
