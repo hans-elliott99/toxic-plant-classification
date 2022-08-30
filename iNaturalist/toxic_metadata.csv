@@ -1,0 +1,6 @@
+class_id,slang,scientific_name,herbarium22_category_id,path,search_url
+0,Western Poison Oak,Toxicodendron diversilobum,14625,../input/toxic-plant-classification/tpc-imgs/toxic_images/000/,https://www.inaturalist.org/taxa/51080-Toxicodendron-diversilobum/browse_photos
+1,Eastern Poison Oak,Toxicodendron pubescens,14626,../input/toxic-plant-classification/tpc-imgs/toxic_images/001/,https://www.inaturalist.org/taxa/52083-Toxicodendron-pubescens/browse_photos
+2,Eastern Poison Ivy,Toxicodendron radicans,14627,../input/toxic-plant-classification/tpc-imgs/toxic_images/002/,https://www.inaturalist.org/taxa/58732-Toxicodendron-radicans/browse_photos
+3,Western Poison Ivy,Toxicodendron rydbergii,14628,../input/toxic-plant-classification/tpc-imgs/toxic_images/003/,https://www.inaturalist.org/taxa/58729-Toxicodendron-rydbergii/browse_photos
+4,Poison Sumac,Toxicodendron vernix,14629,../input/toxic-plant-classification/tpc-imgs/toxic_images/004/,https://www.inaturalist.org/taxa/54767-Toxicodendron-vernix/browse_photos

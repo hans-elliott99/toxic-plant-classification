@@ -1,0 +1,6 @@
+class_id,slang,scientific_name,herbarium22_category_id,path,search_url
+0,Virginia creeper,Parthenocissus quinquefolia,10340,../input/toxic-plant-classification/tpc-imgs/nontoxic_images/000/,https://www.inaturalist.org/taxa/50278-Parthenocissus-quinquefolia/browse_photos
+1,Boxelder,Acer negundo L.,83,../input/toxic-plant-classification/tpc-imgs/nontoxic_images/001/,https://www.inaturalist.org/taxa/47726-Acer-negundo/browse_photos
+2,Jack-in-the-pulpit,Arisaema triphyllum,1055,../input/toxic-plant-classification/tpc-imgs/nontoxic_images/002/,https://www.inaturalist.org/taxa/50310-Arisaema-triphyllum/browse_photos
+3,Bear Oak,Quercus ilicifolia,12267,../input/toxic-plant-classification/tpc-imgs/nontoxic_images/003/,https://www.inaturalist.org/taxa/130737-Quercus-ilicifolia/browse_photos
+4,Fragrant Sumac,Rhus aromatica,12479,../input/toxic-plant-classification/tpc-imgs/nontoxic_images/004/,https://www.inaturalist.org/taxa/58738-Rhus-aromatica/browse_photos
