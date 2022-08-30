@@ -1,10 +1,10 @@
 /** 
-* Javascript code to be pasted into the google developer console.
-* Search for desired images in Google images.
-* Scroll down until the desired amount of images has loaded on the page.
-* Right-click and select inspect. Click on console and paste in this code. Hit Enter.
-* A urls.txt file will be generated and downloaded to your default downloads folder.
-
+ * Javascript code to be pasted into the google developer console.
+ * Search for desired images in Google images.
+ * Scroll down until the desired amount of images has loaded on the page.
+ * Right-click and select inspect. Click on console and paste in this code. Hit Enter.
+ * A urls.txt file will be generated and downloaded to your default downloads folder.
+*/
 
 /**
  * simulate a right-click event so we can grab the image URL using the
