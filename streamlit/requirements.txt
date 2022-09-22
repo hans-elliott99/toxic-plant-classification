@@ -1,6 +1,6 @@
 filesplit==4.0.1
 numpy==1.23.1
-opencv_python==4.6.0.66
+opencv-python-headless  ##required for streamlit
 pandas==1.4.3
 Pillow==9.2.0
 pillow_heif==0.7.0
