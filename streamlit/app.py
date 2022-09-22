@@ -11,7 +11,7 @@ import pillow_heif  ##for processing heif/heic format images (sometimes produced
 from filesplit.merge import Merge ##for mergine split models
 
 # ----Streamlit Settings and Style ----
-st.set_page_config(page_title="Herbarium Classification", page_icon=None,
+st.set_page_config(page_title="Rash Plant Classification", page_icon='./streamlit/images/east-pois-oak.jpg',
                   layout="centered", 
                   initial_sidebar_state="auto", 
                   menu_items=None)
@@ -192,8 +192,9 @@ def main():
     st.write("""
             # 🌿 Rash Plant Classification 🌿
             ###  Helping to Identify Poison Oak, Ivy, and Sumac
-            *DISCLAIMER:* This app is built on an image classification model which was trained to 86% test  
-            accuracy. The best way to avoid poison oak, ivy, or sumac is to learn to identify them yourself. 
+            DISCLAIMER: This app is built on an image classification model which was trained to **86% test  
+            accuracy.** It is trained to identify rash plants from *other plant species* and can do nothing else.
+            **The best way to avoid poison oak, ivy, or sumac is to learn to identify them yourself.** 
             
             #### Quick Facts:
             - **Eastern/Atlantic Poison Oak**: *Toxicodendron pubescens*. 3 leaflets, usually lobed, fuzzy when young but dull when mature. Can have light green to cream colored berries and small, light green flowers. Typically grows in shrub form.  

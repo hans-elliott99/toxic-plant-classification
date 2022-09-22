@@ -15,3 +15,5 @@ tpc_meta.csv
 full_metadata.csv
 
 streamlit/models/*
+streamlit/split_model_1/compiled_model1.h5
+streamlit/split_model_2/compiled_model2.h5
