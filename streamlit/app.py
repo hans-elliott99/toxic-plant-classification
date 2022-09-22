@@ -28,8 +28,8 @@ def load_model():
     merge2.merge(cleanup=False) 
 
     # Load models
-    bestmod = './streamlit/models/compiled_model1.h5'
-    finalmod = './streamlit/models/compiled_model2.h5'
+    bestmod = './streamlit/split_model_1/compiled_model1.h5'
+    finalmod = './streamlit/split_model_2/compiled_model2.h5'
     bestmod = tf.keras.models.load_model(bestmod, compile=False)
     finalmod = tf.keras.models.load_model(finalmod, compile=False)    
     return bestmod, finalmod
