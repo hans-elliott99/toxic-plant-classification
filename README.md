@@ -1,4 +1,4 @@
-# toxic-plant-classification
+# Toxic/Rash Plant Classification
 
 ## iNaturalist
 `./notebooks/scrape-iNaturalist.ipynb` - 
@@ -13,6 +13,7 @@ data scraping and cleaning procedure to acquire training/testing images for a co
 
 ## Streamlit
 `./streamlit/` - code used for deploying a trained toxic plant classifier as a Streamlit app.  
+App: https://hans-elliott99-toxic-plant-classification-streamlitapp-egloqy.streamlitapp.com/
 
 ---
 ---
