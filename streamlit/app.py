@@ -5,7 +5,7 @@ import pandas as pd
 import cv2
 import tensorflow as tf
 
-from PIL import Image
+from PIL import Image, ImageOps
 import pillow_heif  ##for processing heif/heic format images (sometimes produced by phones)
 
 from filesplit.merge import Merge ##for mergine split models
@@ -240,7 +240,7 @@ def main():
     else:
         bytes_data = file.read()
         filename = file.name
-        # If file is in HEIC format (ie, if uploaded from iphone)
+        # If file is in HEIC format (sometimes if uploaded from phone)
         if filename.split('.')[-1] in ['heic', 'HEIC', 'heif', 'HEIF']:
             heic_file = pillow_heif.read_heif(file)
             img = Image.frombytes(
@@ -250,6 +250,7 @@ def main():
             )
         else:
             img = Image.open(file)
+            img = ImageOps.exif_transpose(img) ##iphone photos are transposed otherwise
         st.write("### Your Image:")
         st.write("filename:", filename)
         st.image(img, width=400, use_column_width=False)
