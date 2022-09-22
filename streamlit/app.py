@@ -22,14 +22,14 @@ st.set_page_config(page_title="Herbarium Classification", page_icon=None,
 def load_model():
     """Recombines split models and loads them into memory."""
     # Compile split models
-    merge1 = Merge('../streamlit/split_model_1/', '../streamlit/models/', 'compiled_model1.h5',)
+    merge1 = Merge('/toxic-plant-classification/streamlit/split_model_1/', '/toxic-plant-classification/streamlit/models/', 'compiled_model1.h5',)
     merge1.merge(cleanup=False) ##keep split files with False
-    merge2 = Merge('../streamlit/split_model_2/', '../streamlit/models/', 'compiled_model2.h5')
+    merge2 = Merge('/toxic-plant-classification/streamlit/split_model_2/', '/toxic-plant-classification/streamlit/models/', 'compiled_model2.h5')
     merge2.merge(cleanup=False) 
 
     # Load models
-    bestmod = '../streamlit/models/compiled_model1.h5'
-    finalmod = '../streamlit/models/compiled_model2.h5'
+    bestmod = '/toxic-plant-classification/streamlit/models/compiled_model1.h5'
+    finalmod = '/toxic-plant-classification/streamlit/models/compiled_model2.h5'
     bestmod = tf.keras.models.load_model(bestmod, compile=False)
     finalmod = tf.keras.models.load_model(finalmod, compile=False)    
     return bestmod, finalmod
@@ -203,7 +203,7 @@ def main():
             Scroll down for examples.  
             """
             )
-    ip = "../streamlit/images/"
+    ip = "/toxic-plant-classification/streamlit/images/"
     col1, col2, col3 = st.columns([1,1,1])
     with col1:
         st.image(Image.open(ip+'plant-shine.jpg'), use_column_width=True, width=250)
