@@ -57,20 +57,21 @@ def upload_predict(image, models, image_size=(199,199)):
     #     'species' : species
     # })
     if prediction.item() < 0.5:
-        confidence = (1-prediction.item()) * 100
+        confidence = round((1-prediction.item()) * 100, 3)
     else:
-        confidence = prediction.item() * 100
+        confidence = round(prediction.item() * 100, 3)
     out_table = pd.DataFrame({
         'Prediction' : result,
-        'Confidence' : [f'{round(confidence, 3)} %'],
+        'Confidence' : [f'{confidence} %'],
         # 'ensemble': [[pred1.numpy().item(), pred2.numpy().item()]]
     })
+    result_text = f"Model predicts *{result[0]}* with {confidence}% confidence."
     if result[0]=="Toxic": 
-        out_text = "This could be an image of poison oak, poison ivy, or poison sumac."
+        message_text = "This could be an image of poison oak, poison ivy, or poison sumac."
     else:
-        out_text = "The model predicts that this is not a rash plant, but proceed with caution."
+        message_text = "The model predicts that this is not a rash plant, but proceed with caution."
 
-    return out_table, out_text
+    return result_text, message_text
 
 
 def prep_input_image(image, resize=(199, 199)):
@@ -201,7 +202,8 @@ def main():
             - **Western/Pacific Poison Oak**: *Toxicodendron diversilobum*. 3 leaflets, usually lobed, both shiny and dull (often shiny). Can have White or cream colored berries and small, pink or green flowers. Can grow as vines or shrubs.
             - **Eastern/Atlantic Poison Ivy** & **Western/Pacific Poison Ivy**: *Toxicodendron radicans* & *Toxicodendron rydbergii*. 3 leafelts, either smooth (entire) or lobed, but never jagged (serrate). Can be shiny and fuzzy. May have white to cream colored berries and tiny white/green buds. Can grow as vines, shrubs, or ground cover.  
             - **Poison Sumac**: *Toxicodendron vernix.* 7-13 leaflets per single leaf, often very shiny and angled upward. May have white to green berries and greenish, drooping flowers. Grows as a shrub in wet, wooded areas. It is not as common as poison oak and ivy and tends to be found in the swampy areas of the southeastern and northeastern united states. 
-            Scroll down for examples.  
+            Scroll down for image examples.  
+
             """
             )
     ip = "./streamlit/images/"
@@ -213,22 +215,19 @@ def main():
     with col3:
         st.image(Image.open(ip+'berries_flowers.jpg'), use_column_width=True, width=250)
 
-    # leafs = [Image.open(paths[0])]
-    # st.image(leafs, caption=[''],  use_column_width=False, width=250,)
-
-
     st.write(
-            """
-            ## Predict
-            The model used for this project is a ResNet101v2 model pre-trained on ImageNet and then finetuned on
-            a dataset scraped from iNaturalist.org. On the test data, it achieved an accuracy score of 86\% and ROC AUC score of 93\%.
-            [For the training procedure see this example](https://www.kaggle.com/code/hanselliott/tpc-basicresnet/).
-            """
-            )
+        """
+        The model used for inference is a ResNet101v2 model pre-trained on ImageNet and then finetuned on
+        a dataset of 6,000+ images scraped from iNaturalist.org. On the test data, it achieved an accuracy score of 
+        86\% and ROC AUC score of 93\%.
+        [For the training procedure see this example](https://www.kaggle.com/code/hanselliott/tpc-resnet-toxic).
+        """
+        )
 
+    st.write("# Prediction")
     #--------------------MAIN----------------------------------#
     # FILE UPLOADER
-    file = st.file_uploader("Upload an image.", 
+    file = st.file_uploader("For best results obtain a clear, close image which highlights the leaves of the specimen. See below for examples.", 
                             help="Supported filetypes: jpg/jpeg, png, heic (iPhone).") #type=["jpg", "png", "heic, "])
     st.set_option('deprecation.showfileUploaderEncoding', False)
 
@@ -251,13 +250,12 @@ def main():
         else:
             img = Image.open(file)
             img = ImageOps.exif_transpose(img) ##iphone photos are transposed otherwise
-        st.write("### Your Image:")
+        st.write("**Your Image:**")
         st.write("filename:", filename)
         st.image(img, width=400, use_column_width=False)
-        out_table, out_text = upload_predict(img, models, image_size=(199, 199))
-        st.write("# Prediction")
-        st.write(out_table)
-        st.write(out_text)
+        result_text, message_text = upload_predict(img, models, image_size=(199, 199))
+        st.write(f"#### {result_text}")
+        st.write(message_text)
 
 
 
